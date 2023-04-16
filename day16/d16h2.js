@@ -1,0 +1,28 @@
+// Exercise : Object Diagram Odd Even
+// objectDiagramOddEven.md
+// Draw the object diagram for the following code and evaluate the output
+
+let arr = [1, 3, 4, 2, 9, 8, 7, 6, 5, 10]
+let data = {
+    numbers: [
+        { odd: [arr[0], arr[4], arr[1], arr[6], arr[8]] },
+        { even: [arr[3], arr[2], arr[7], arr[5], arr[9]] }
+    ],
+    primeNumbers: {
+        first10: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    }
+}
+let currentValue = data.primeNumbers.first10[data.numbers[0].odd[3] % 4]
+console.log(currentValue)
+
+/*
+EXPRESSION TRACE
+data.primeNumbers.first10[data.numbers[0].odd[3] % 4]
+op1.first10[data.numbers[0].odd[3] % 4]
+op2[data.numbers[0].odd[3] % 4]
+op2[op3[0].odd[3] % 4]
+op2[arr[6] % 4]
+op2[7 % 4]
+op2[3]
+7
+*/
